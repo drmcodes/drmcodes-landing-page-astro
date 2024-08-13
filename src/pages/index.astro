@@ -2,8 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Badge from "../components/Badge.astro";
-import GitHub from "../icons/Github.astro";
-import LinkedIn from "../icons/LinkedIn.astro";
+import GitHub from "../icons/GithubIcon.astro";
+import LinkedInIcon from "../icons/LinkedInIcon.astro";
+import GitHubIcon from "../icons/GithubIcon.astro";
+import SocialPill from "../components/SocialPill.astro";
 ---
 
 <Layout title="drmcodes | FullStack Web Developer ">
@@ -35,15 +37,16 @@ import LinkedIn from "../icons/LinkedIn.astro";
         enfocado en el aprendizaje continuo y la mejora constante.
       </h2>
 
-      <ul>
-        <li>
-          <a href="https://www.linkedin.com/in/drmcodes/">
-            <LinkedIn class="w-6 h-6" />
-            LinkedIn
-          </a>
-          <a href=""></a>
-        </li>
-      </ul>
+      <nav class="flex gap-x-2 mt-8">
+        <SocialPill href="https://www.linkedin.com/in/drmcodes/">
+          <LinkedInIcon class="w-6 h-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/drmcodes">
+          <GitHubIcon class="w-6 h-6" />
+          GitHub
+        </SocialPill>
+      </nav>
     </section>
   </main>
 </Layout>
