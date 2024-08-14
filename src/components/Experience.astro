@@ -3,14 +3,14 @@ import ExperienceItem from "../components/ExperienceItem.astro"
 const EXPERIENCE = [
   {
     date: "Agosto 2023 - Actualidad",
-    title: "Desarrollador Web FullStack",
+    title: "Desarrollador Web FullStack Autodidacta",
     description:
       "A lo largo de este período, he profundizado en el desarrollo web, adquiriendo habilidades clave en frontend y backend, desde la construcción de interfaces interactivas hasta la gestión de bases de datos y el control de versiones, todo a través del aprendizaje autodidacta.",
   },
 ];
 ---
 
-<ol class="relative border-s border-gray-200 dark:border-gray-700">
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-3">
     { EXPERIENCE.map(exp => (
         <li class="mb-10 ms-4">
           <ExperienceItem {... exp}/>  
