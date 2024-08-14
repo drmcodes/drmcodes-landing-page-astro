@@ -5,14 +5,20 @@ import Badge from "../components/Badge.astro";
 import GitHub from "../icons/GithubIcon.astro";
 import LinkedInIcon from "../icons/LinkedInIcon.astro";
 import GitHubIcon from "../icons/GithubIcon.astro";
+import MailIcon from "../icons/MailIcon.astro";
+import SectionContainer from "../components/SectionContainer.astro"
 import SocialPill from "../components/SocialPill.astro";
+import Experience from "../components/Experience.astro";
 ---
 
-<Layout title="drmcodes | FullStack Web Developer ">
+<Layout
+  title="drmcodes | FullStack Web Developer"
+  description="drmcodes es un desarrollador web con mas de 1 año de experiencia especializado en el desarrollo de páginas webs y microservicios."
+>
   <main>
-    <section class="w-full mx-auto lg:w-[740px] py-44">
+    <SectionContainer>
       <img
-        class="rounded-full w-12 h-12 mb-4"
+        class="rounded-full size-12 mb-4"
         src="https://avatars.githubusercontent.com/u/143167807?v=4"
         alt="drmcodes-pic"
       />
@@ -31,22 +37,29 @@ import SocialPill from "../components/SocialPill.astro";
       </h1>
       <h2 class="text-2xl opacity-80 text-wrap">
         <span class="text-yellow-200/90"
-          >1 año de experiencia como autodidacta.</span
+          >+1 año de experiencia como autodidacta.</span
         >
         <span class="opacity-80">Desarrollador Web FullStack,</span>
         enfocado en el aprendizaje continuo y la mejora constante.
       </h2>
 
-      <nav class="flex gap-x-2 mt-8">
+      <nav class="flex gap-x-4 mt-8">
         <SocialPill href="https://www.linkedin.com/in/drmcodes/">
-          <LinkedInIcon class="w-6 h-6" />
+          <LinkedInIcon class="size-6" />
           LinkedIn
         </SocialPill>
         <SocialPill href="https://github.com/drmcodes">
-          <GitHubIcon class="w-6 h-6" />
+          <GitHubIcon class="size-6" />
           GitHub
         </SocialPill>
+        <SocialPill href="https://github.com/drmcodes">
+          <MailIcon class="size-6" />
+          drmcodes@gmail.com
+        </SocialPill>
       </nav>
-    </section>
+    </SectionContainer>
+    <SectionContainer>
+      <Experience/>
+    </SectionContainer>
   </main>
 </Layout>
