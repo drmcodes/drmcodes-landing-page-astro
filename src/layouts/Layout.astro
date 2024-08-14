@@ -27,7 +27,7 @@ const { title, description } = Astro.props;
     </div>
     <Header />
     <slot />
-    <Footer />
+    
   </body>
 </html>
 
@@ -44,7 +44,6 @@ const { title, description } = Astro.props;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding:0 16;
   }
   @media (prefers-reduced-motion: reduce) {
     html {
@@ -52,17 +51,17 @@ const { title, description } = Astro.props;
     }
   }
 
-  nav {
-    transition:
-      background-color 0.3s ease,
-      border-radius 0.3s ease;
+ nav {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+    border-radius: 30px;
   }
 
-  nav.scrolled {
-    background-color: rgba(229, 231, 235, 1);
-    border-radius: 30px;
-    color: black;
-    opacity: 0.9;
+  @keyframes nav-shadown {
+    to {
+      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
+    }
   }
 </style>
 
