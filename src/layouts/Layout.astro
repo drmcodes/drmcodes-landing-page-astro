@@ -27,7 +27,6 @@ const { title, description } = Astro.props;
     </div>
     <Header />
     <slot />
-    
   </body>
 </html>
 
@@ -51,17 +50,17 @@ const { title, description } = Astro.props;
     }
   }
 
- nav {
-    animation: nav-shadown 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
-    border-radius: 30px;
+  nav {
+    transition:
+      background-color 0.3s ease,
+      border-radius 0.3s ease;
   }
 
-  @keyframes nav-shadown {
-    to {
-      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
-    }
+  nav.scrolled {
+    background-color: rgba(229, 231, 235, 1);
+    border-radius: 30px;
+    color: black;
+    opacity: 0.9;
   }
 </style>
 
@@ -70,7 +69,6 @@ const { title, description } = Astro.props;
     window.addEventListener("scroll", () => {
       const navbar = document.getElementById("navbar");
       if (window.scrollY > 50) {
-        // Ajusta este valor según tu necesidad
         navbar.classList.add("scrolled");
       } else {
         navbar.classList.remove("scrolled");
