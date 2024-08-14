@@ -22,12 +22,12 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <div
-      class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
+      class="fixed inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
     >
     </div>
     <Header />
     <slot />
-    <Footer/>
+    <Footer />
   </body>
 </html>
 
@@ -44,10 +44,38 @@ const { title, description } = Astro.props;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding:0 16;
   }
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
     }
   }
+
+  nav {
+    transition:
+      background-color 0.3s ease,
+      border-radius 0.3s ease;
+  }
+
+  nav.scrolled {
+    background-color: rgba(229, 231, 235, 1);
+    border-radius: 30px;
+    color: black;
+    opacity: 0.9;
+  }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("scroll", () => {
+      const navbar = document.getElementById("navbar");
+      if (window.scrollY > 50) {
+        // Ajusta este valor según tu necesidad
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  });
+</script>
