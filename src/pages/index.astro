@@ -6,23 +6,28 @@ import GitHub from "../icons/GithubIcon.astro";
 import LinkedInIcon from "../icons/LinkedInIcon.astro";
 import GitHubIcon from "../icons/GithubIcon.astro";
 import MailIcon from "../icons/MailIcon.astro";
-import SectionContainer from "../components/SectionContainer.astro"
-import SocialPill from "../components/SocialPill.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Socials from "../components/Socials.astro";
 import Experience from "../components/Experience.astro";
+import BriefcaseIcon from "../icons/BriefcaseIcon.astro";
+import CodeIcon from "../icons/CodeIcon.astro";
+import Projects from "../components/Projects.astro";
 ---
 
 <Layout
   title="drmcodes | FullStack Web Developer"
   description="drmcodes es un desarrollador web con mas de 1 año de experiencia especializado en el desarrollo de páginas webs y microservicios."
 >
-  <main>
-    <SectionContainer>
+  <main class="px-4">
+    <SectionContainer class="py-44 pb-32">
       <img
         class="rounded-full size-12 mb-4"
         src="https://avatars.githubusercontent.com/u/143167807?v=4"
         alt="drmcodes-pic"
       />
-      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
+      <h1
+        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+      >
         Hola👋, soy drmcodes <a
           class="flex justify-center items-center"
           href="https://www.linkedin.com/in/drmcodes/"
@@ -35,7 +40,7 @@ import Experience from "../components/Experience.astro";
           <Badge>Disponible para trabajar</Badge>
         </a>
       </h1>
-      <h2 class="text-2xl opacity-80 text-wrap">
+      <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
         <span class="text-yellow-200/90"
           >+1 año de experiencia como autodidacta.</span
         >
@@ -43,23 +48,35 @@ import Experience from "../components/Experience.astro";
         enfocado en el aprendizaje continuo y la mejora constante.
       </h2>
 
-      <nav class="flex gap-x-4 mt-8">
-        <SocialPill href="https://www.linkedin.com/in/drmcodes/">
-          <LinkedInIcon class="size-6" />
+      <nav class="flex gap-4 mt-8 flex-wrap">
+        <Socials href="https://www.linkedin.com/in/drmcodes/">
+          <LinkedInIcon class="size-4 md:size-6" />
           LinkedIn
-        </SocialPill>
-        <SocialPill href="https://github.com/drmcodes">
-          <GitHubIcon class="size-6" />
+        </Socials>
+        <Socials href="https://github.com/drmcodes">
+          <GitHubIcon class="size-4 md:size-6" />
           GitHub
-        </SocialPill>
-        <SocialPill href="https://github.com/drmcodes">
-          <MailIcon class="size-6" />
+        </Socials>
+        <Socials href="mailto:drm.codes@gmail.com">
+          <MailIcon class="size-4 md:size-6" />
           drmcodes@gmail.com
-        </SocialPill>
+        </Socials>
       </nav>
     </SectionContainer>
-    <SectionContainer>
-      <Experience/>
+
+    <SectionContainer id="experiencia">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+        <BriefcaseIcon class="size-7" />
+        Experiencia
+      </h2>
+      <Experience />
+    </SectionContainer>
+    <SectionContainer id="experiencia">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+        <CodeIcon class="size-7" />
+        Proyectos
+      </h2>
+      <Projects />
     </SectionContainer>
   </main>
 </Layout>
