@@ -1,27 +1,49 @@
 ---
+import HtmlIcon from '../icons/HtmlIcon.astro';
+import CssIcon from '../icons/CssIcon.astro';
+import ReactIcon from '../icons/ReactIcon.astro';
+import NodeIcon from '../icons/NodeIcon.astro';
+import ExpressIcon from '../icons/ExpressIcon.astro';
+import MongoDBIcon from '../icons/MongoDBIcon.astro';
+
+const TAGS = {
+  HTML: { name: 'HTML', class: 'bg-orange-600 text-white', icon: HtmlIcon },
+  CSS: { name: 'CSS', class: 'bg-blue-500 text-white', icon: CssIcon },
+  REACT: { name: 'React.js', class: 'bg-blue-600 text-white', icon: ReactIcon },
+  NODE: { name: 'Node.js', class: 'bg-green-600 text-white', icon: NodeIcon },
+  EXPRESS: { name: 'Express.js', class: 'bg-gray-800 text-white', icon: ExpressIcon },
+  MONGODB: { name: 'MongoDB', class: 'bg-green-700 text-white', icon: MongoDBIcon }
+};
+
 const PROJECTS = [
   {
-    title: "Project 1",
-    description: "Lorem ipsum",
+    title: "Social Platform",
+    description: "Proyecto de red social en la que los usuarios pueden conectarse, compartir actualizaciones y fotos. ",
     link: "#",
     github: "#",
-    image: "https://via.placeholder.com/300x200",
-    tags: ["HTML", "CSS", "JavaScript"],
+    image: "/src/assets/icon/178shots_so.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.REACT, TAGS.NODE, TAGS.EXPRESS,TAGS.MONGODB],
   },
 ];
+
 ---
 
 {
   PROJECTS.map(({ title, description, tags, image }) => (
     <article>
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <ul>
-        {tags.map((tag) => (
-          <li>{tag}</li>
-        ))}
-      </ul>
-      <img src={image} alt={`Screenshot del proyecto ${image}`}}>
+      <h3 class="text-2xl font-semibold text-yellow-200/90 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex flex-wrap gap-x-2">
+  {tags.map((tag) => (
+    <li class="mb-2">
+      <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+        <tag.icon class="size-4"></tag.icon>{tag.name}
+      </span>
+    </li>
+  ))}
+</ul>
+
+      <img class="rounded shadow-2xl shadow-white/10" src={image} alt={`Screenshot del proyecto ${image}`}}>
     </article>
   ))
 }
