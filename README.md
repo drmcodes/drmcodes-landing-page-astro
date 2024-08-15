@@ -26,5 +26,5 @@ Esta página ha sido construida utilizando:
 - **Experiencia y Habilidades**: Detalla la experiencia laboral y las habilidades adquiridas a lo largo de mi carrera.
 
 ## Captura de Pantalla
+![mockup landing page](https://github.com/user-attachments/assets/94ec5f73-592b-4a0c-9587-c779815c82f7)
 
-![Vista de la Página](https://github.com/user-attachments/assets/a9bd954d-1904-4074-90bd-9a19d8f39737)
