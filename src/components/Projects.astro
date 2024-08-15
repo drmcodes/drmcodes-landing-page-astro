@@ -7,7 +7,6 @@ import ExpressIcon from '../icons/ExpressIcon.astro';
 import MongoDBIcon from '../icons/MongoDBIcon.astro';
 import StyledComponentsIcon from '../icons/StyledComponentsIcon.astro';
 import TypeScriptIcon from "../icons/TypeScriptIcon.astro";
-import MetamaskIcon from "../icons/MetamaskIcon.astro"
 
 const TAGS = {
   HTML: { name: 'HTML', class: 'bg-orange-600 text-white', icon: HtmlIcon },
@@ -18,18 +17,17 @@ const TAGS = {
   MONGODB: { name: 'MongoDB', class: 'bg-green-700 text-white', icon: MongoDBIcon },
   STYLED: {name: 'StyledComponents', class:'bg-blue-500 text-white', icon:StyledComponentsIcon},
   TYPESCRIPT: {name: 'TypeScript', class:'bg-blue-500 text-white', icon:TypeScriptIcon},
-  METAMASK: {name: 'Metamask', class:'bg-gray-800 text-white', icon:MetamaskIcon}
   
 };
 
 const PROJECTS = [
 {
-  title: "Token Transfer App",
-  description: "Una aplicación que permite enviar tokens ERC20 de una wallet a otra en la blockchain. La aplicación está desarrollada con React,TypeScript y Wagmi, y utiliza MetaMask para interactuar con la blockchain.",
-  link: "#",
-  github: "https://github.com/drmcodes/token-transfer-app",
-  image: "/underconstruction.webp",
-  tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.METAMASK]
+  "title": "League of Legends Info App",
+  "description": "Una aplicación que obtiene información sobre los campeones, objetos y runas de League of Legends. Permite filtrar los campeones por tipo (asesino, tanque, mago, etc.), mostrar y filtrar los objetos por categoría, y ver las diferentes runas disponibles. La aplicación está desarrollada con React y TypeScript, y consume datos de la API oficial de League of Legends.",
+  "link": "https://lol-api-app-ts.vercel.app/",
+  "github": "https://github.com/drmcodes/lol-api-app-ts",
+  "image": "/mockups/leagueoflegends-mockup.webp",
+  "tags": [TAGS.HTML, TAGS.CSS, TAGS.REACT, TAGS.TYPESCRIPT]
 },
 {
     title: "Plataforma Social",
