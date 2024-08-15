@@ -5,6 +5,7 @@ import ReactIcon from '../icons/ReactIcon.astro';
 import NodeIcon from '../icons/NodeIcon.astro';
 import ExpressIcon from '../icons/ExpressIcon.astro';
 import MongoDBIcon from '../icons/MongoDBIcon.astro';
+import StyledComponentsIcon from '../icons/StyledComponentsIcon.astro';
 
 const TAGS = {
   HTML: { name: 'HTML', class: 'bg-orange-600 text-white', icon: HtmlIcon },
@@ -12,25 +13,34 @@ const TAGS = {
   REACT: { name: 'React.js', class: 'bg-blue-600 text-white', icon: ReactIcon },
   NODE: { name: 'Node.js', class: 'bg-green-600 text-white', icon: NodeIcon },
   EXPRESS: { name: 'Express.js', class: 'bg-gray-800 text-white', icon: ExpressIcon },
-  MONGODB: { name: 'MongoDB', class: 'bg-green-700 text-white', icon: MongoDBIcon }
+  MONGODB: { name: 'MongoDB', class: 'bg-green-700 text-white', icon: MongoDBIcon },
+  STYLED: {name: 'StyledComponents', class:'bg-blue-500 text-white', icon:StyledComponentsIcon}
 };
 
 const PROJECTS = [
   {
-    title: "Social Platform",
+    title: "Plataforma Social",
     description: "Proyecto de red social en la que los usuarios pueden conectarse, compartir actualizaciones y fotos. ",
     link: "#",
-    github: "#",
-    image: "/login-register-mockup.webp",
+    github: "https://github.com/drmcodes/login-register",
+    image: "/mockups/login-register-mockup.webp",
     tags: [TAGS.HTML, TAGS.CSS, TAGS.REACT, TAGS.NODE, TAGS.EXPRESS,TAGS.MONGODB],
+  },
+  {
+    title: "Página web Estudio de Arte",
+    description: "Página web de Estudio de Arte Bermellón. Aquí se muestran las técnicas artísticas que emplean, los cursos y clases de dibujo que ofrecen para todas las edades, su galería de arte y otros servicios.\n(Sitio en construcción)",
+    link: "https://academiabermellon.netlify.app/",
+    github: "https://github.com/drmcodes/academiaBermellon-webpage",
+    image: "/mockups/bermellon-mockup.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.REACT,TAGS.STYLED],
   },
 ];
 
 ---
 
 {
-  PROJECTS.map(({ title, description, tags, image }) => (
-    <article>
+  PROJECTS.map(({ title, description, tags, image, link, github }) => (
+    <article class="pb-24">
       <h3 class="text-2xl font-semibold text-yellow-200/90 mb-2">{title}</h3>
       <p class="text-lg mb-4 text-pretty">{description}</p>
       <ul class="flex flex-wrap gap-x-2">
@@ -42,8 +52,16 @@ const PROJECTS = [
     </li>
   ))}
 </ul>
-
       <img class="rounded shadow-2xl shadow-white/10 pt-4" src={image} alt={`Screenshot del proyecto ${image}`}}>
+      <div class="flex justify-between">
+        <a  class="rounded-full border w-[45%] my-5 border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-4 md:px-4 text-xs lg:text-base bg-white/5 hover:scale-110 hover:bg-white/10 transition"
+  target="_blank"
+  rel="noopener noreferrer" href={link}>Live demo</a>
+<a  class="rounded-full border w-[45%] my-5 border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-4 md:px-4 text-xs lg:text-base bg-white/5 hover:scale-110 hover:bg-white/10 transition"
+  target="_blank"
+  rel="noopener noreferrer" href={github}>GitHub Repo</a>
+        </div>
+
     </article>
   ))
 }
