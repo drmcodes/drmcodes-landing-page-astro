@@ -1,7 +1,6 @@
 ---
 import "@fontsource/onest";
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
@@ -11,7 +10,7 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -74,5 +73,37 @@ const { title, description } = Astro.props;
         navbar.classList.remove("scrolled");
       }
     });
+  });
+  // -------------------------------------
+
+  document.addEventListener("DOMContentLoaded", function () {
+    let language = localStorage.getItem("language") || "en";
+
+    document.body.classList.add(language);
+  });
+
+  function setLanguage(lang) {
+    localStorage.setItem("language", lang);
+    location.reload();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const languageToggleButton = document.getElementById(
+      "language-toggle-button"
+    );
+
+    const savedLanguage = localStorage.getItem("language") || "en";
+    updateLanguageDisplay(savedLanguage);
+
+    languageToggleButton.addEventListener("click", () => {
+      let currentLanguage = localStorage.getItem("language") || "en";
+      let newLanguage = currentLanguage === "en" ? "es" : "en";
+      localStorage.setItem("language", newLanguage);
+      updateLanguageDisplay(newLanguage);
+
+      location.reload();
+    });
+
+    
   });
 </script>

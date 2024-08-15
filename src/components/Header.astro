@@ -1,19 +1,117 @@
+---
+const headerContent = {
+  en: {
+    experience: "Experience",
+    projects: "Projects",
+    aboutMe: "About Me",
+    languageToggle: "Change Language",
+  },
+  es: {
+    experience: "Experiencia",
+    projects: "Proyectos",
+    aboutMe: "Sobre mí",
+    languageToggle: "Cambiar idioma",
+  },
+};
+
+const defaultLanguage = "en";
+const language =
+  typeof window !== "undefined"
+    ? localStorage.getItem("language") || defaultLanguage
+    : defaultLanguage;
+const currentHeaderContent =
+  headerContent[language] || headerContent[defaultLanguage];
+---
+
 <header
   class="fixed top-5 z-10 flex items-center justify-center w-full mx-auto mt-2 bg-transparent"
 >
   <nav
     id="navbar"
-    class="flex flex-row gap-x-6 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 opacity-80 py-2 sm:py-3 md:py-4 lg:py-5 px-4 sm:px-6 md:px-8 lg:px-10"
+    class="flex justify-center items-center flex-row gap-x-6 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 opacity-80 py-2 sm:py-3 md:py-4 lg:py-5 px-4 sm:px-6 md:px-8 lg:px-10"
   >
-    <a href="#experiencia" class="text-xs sm:text-sm md:text-base lg:text-lg"
-      >Experiencia</a
+    <a
+      id="nav-experience"
+      href="#experiencia"
+      class="text-[0.70rem] sm:text-sm md:text-base lg:text-lg"
     >
-    <a href="#proyectos" class="text-xs sm:text-sm md:text-base lg:text-lg"
-      >Proyectos</a
+      {currentHeaderContent.experience}
+    </a>
+    <a
+      id="nav-projects"
+      href="#proyectos"
+      class="text-[0.70rem] sm:text-sm md:text-base lg:text-lg"
     >
-    <a href="#sobre-mi" class="text-xs sm:text-sm md:text-base lg:text-lg"
-      >Sobre mí</a
+      {currentHeaderContent.projects}
+    </a>
+    <a
+      id="nav-about-me"
+      href="#sobre-mi"
+      class="text-[0.70rem] sm:text-sm md:text-base lg:text-lg"
     >
-          <!-- TODO light/dark mode button -->
+      {currentHeaderContent.aboutMe}
+    </a>
+    <div class="flex">
+      <button
+        id="language-toggle-button"
+        class="text-[0.70rem] sm:text-sm md:text-base lg:text-lg"
+      >
+        {currentHeaderContent.languageToggle}
+        <img src="" alt="" />
+      </button>
+    </div>
   </nav>
 </header>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    const headerContent = {
+      en: {
+        experience: "Experience",
+        projects: "Projects",
+        aboutMe: "About Me",
+      },
+      es: {
+        experience: "Experiencia",
+        projects: "Proyectos",
+        aboutMe: "Sobre mí",
+      },
+    };
+
+    function getHeaderContent(language) {
+      return headerContent[language] || headerContent["en"];
+    }
+
+    const language = localStorage.getItem("language") || "en";
+    const currentHeaderContent = getHeaderContent(language);
+
+    document.getElementById("nav-experience").textContent =
+      currentHeaderContent.experience;
+    document.getElementById("nav-projects").textContent =
+      currentHeaderContent.projects;
+    document.getElementById("nav-about-me").textContent =
+      currentHeaderContent.aboutMe;
+    document.getElementById("language-toggle-button").textContent =
+      currentHeaderContent.languageToggle;
+  });
+
+  function updateLanguageDisplay(language) {
+    const languageToggleButton = document.getElementById(
+      "language-toggle-button"
+    );
+
+    let img = languageToggleButton.querySelector("img");
+    if (!img) {
+      img = document.createElement("img");
+      languageToggleButton.appendChild(img);
+    }
+
+    img.src =
+      language === "en"
+        ? "https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/svg/1f1ec-1f1e7.svg"
+        : "https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/svg/1f1ea-1f1f8.svg";
+
+    img.style.width = "24px";
+    img.style.height = "24px";
+  }
+</script>

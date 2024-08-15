@@ -1,21 +1,77 @@
 ---
 const year = new Date().getFullYear();
+
+const footerContent = {
+  en: {
+    rightsReserved: "© {year} drmcodes. All rights reserved.",
+    aboutMe: "About Me",
+    contact: "Contact",
+  },
+  es: {
+    rightsReserved: "© {year} drmcodes. Todos los derechos reservados.",
+    aboutMe: "Sobre mi",
+    contact: "Contacto",
+  },
+};
+
+const defaultLanguage = "en";
+const language =
+  typeof window !== "undefined"
+    ? localStorage.getItem("language") || defaultLanguage
+    : defaultLanguage;
+const currentFooterContent =
+  footerContent[language] || footerContent[defaultLanguage];
 ---
 
-<footer class="rounded-lg shadow m-4 bg-black/20 backdrop-blur-lg w-full lg:w-[740px] mx-auto mb-10">
+<footer
+  class="rounded-lg shadow m-4 bg-black/20 backdrop-blur-lg w-full lg:w-[740px] mx-auto mb-10"
+>
   <div class="w-full p-4 md:flex md:items-center md:justify-between">
-    <span class="text-sm sm:text-center text-yellow-200">
-      © {year}
-      <a href="https://www.linkedin.com/in/drmcodes/" class="hover:underline">drmcodes.</a>
-       Todos los derechos reservados.
+    <span id="footer-rights" class="text-sm sm:text-center text-yellow-200">
+      {currentFooterContent.rightsReserved.replace("{year}", year)}
     </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white/90 sm:mt-0">
+    <ul
+      id="footer-links"
+      class="flex flex-wrap items-center mt-3 text-sm font-medium text-white/90 sm:mt-0"
+    >
       <li>
-        <a href="#" class="hover:underline me-4 md:me-6">Sobre mi</a>
+        <a href="#" id="footer-about-me" class="hover:underline me-4 md:me-6"
+        ></a>
       </li>
       <li>
-        <a href="#" class="hover:underline">Contacto</a>
+        <a href="#" id="footer-contact" class="hover:underline"></a>
       </li>
     </ul>
   </div>
 </footer>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    const footerContent = {
+      en: {
+        rightsReserved: `© ${new Date().getFullYear()} drmcodes. All rights reserved.`,
+        aboutMe: "About Me",
+        contact: "Contact",
+      },
+      es: {
+        rightsReserved: `© ${new Date().getFullYear()} drmcodes. Todos los derechos reservados.`,
+        aboutMe: "Sobre mi",
+        contact: "Contacto",
+      },
+    };
+
+    function getFooterContent(language) {
+      return footerContent[language] || footerContent["en"];
+    }
+
+    const language = localStorage.getItem("language") || "en";
+    const currentFooterContent = getFooterContent(language);
+
+    document.getElementById("footer-rights").innerHTML =
+      currentFooterContent.rightsReserved;
+    document.getElementById("footer-about-me").textContent =
+      currentFooterContent.aboutMe;
+    document.getElementById("footer-contact").textContent =
+      currentFooterContent.contact;
+  });
+</script>

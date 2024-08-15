@@ -15,12 +15,41 @@ import Projects from "../components/Projects.astro";
 import AboutMe from "../components/AboutMe.astro";
 import Footer from "../components/Footer.astro";
 import UserIcon from "../icons/UserIcon.astro";
+
+const content = {
+  en: {
+    title: "drmcodes | FullStack Web Developer",
+    description:
+      "drmcodes is a web developer with over 1 year of experience specializing in web pages and microservices.",
+    greeting: "Hello👋, I'm drmcodes",
+    experienceDescription:
+      "+1 year of experience as a self-taught developer. FullStack Web Developer, focused on continuous learning and constant improvement.",
+    experience: "Experience",
+    projects: "Projects",
+    aboutMe: "About Me",
+  },
+  es: {
+    title: "drmcodes | Desarrollador Web FullStack",
+    description:
+      "drmcodes es un desarrollador web con más de 1 año de experiencia especializado en el desarrollo de páginas web y microservicios.",
+    greeting: "Hola👋, soy drmcodes",
+    experienceDescription:
+      "+1 año de experiencia como autodidacta. Desarrollador Web FullStack, enfocado en el aprendizaje continuo y la mejora constante.",
+    experience: "Experiencia",
+    projects: "Proyectos",
+    aboutMe: "Sobre mí",
+  },
+};
+
+const defaultLanguage = "en";
+const language =
+  typeof window !== "undefined"
+    ? localStorage.getItem("language") || defaultLanguage
+    : defaultLanguage;
+const currentContent = content[language] || content[defaultLanguage];
 ---
 
-<Layout
-  title="drmcodes | FullStack Web Developer"
-  description="drmcodes es un desarrollador web con mas de 1 año de experiencia especializado en el desarrollo de páginas webs y microservicios."
->
+<Layout title={currentContent.title} description={currentContent.description}>
   <main class="px-10">
     <SectionContainer class="py-44 pb-32">
       <img
@@ -29,9 +58,11 @@ import UserIcon from "../icons/UserIcon.astro";
         alt="drmcodes-pic"
       />
       <h1
+        id="greeting"
         class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
       >
-        Hola👋, soy drmcodes <a
+        {currentContent.greeting}
+        <a
           class="flex justify-center items-center"
           href="https://www.linkedin.com/in/drmcodes/"
           target="_blank"
@@ -42,12 +73,13 @@ import UserIcon from "../icons/UserIcon.astro";
         >
         </a>
       </h1>
-      <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
+      <h2
+        id="experienceDescription"
+        class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]"
+      >
         <span class="text-yellow-200/90"
-          >+1 año de experiencia como autodidacta.</span
+          >{currentContent.experienceDescription}</span
         >
-        <span class="opacity-80">Desarrollador Web FullStack,</span>
-        enfocado en el aprendizaje continuo y la mejora constante.
       </h2>
 
       <nav class="flex gap-4 mt-8 flex-wrap">
@@ -67,26 +99,76 @@ import UserIcon from "../icons/UserIcon.astro";
     </SectionContainer>
 
     <SectionContainer id="experiencia">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+      <h2
+        id="experienceTitle"
+        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center"
+      >
         <BriefcaseIcon class="size-7" />
-        Experiencia
+        <span id="experienceText">{currentContent.experience}</span>
       </h2>
       <Experience />
     </SectionContainer>
     <SectionContainer id="proyectos">
       <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
         <CodeIcon class="size-7" />
-        Proyectos
+        <span id="projectsText">{currentContent.projects}</span>
       </h2>
       <Projects />
     </SectionContainer>
     <SectionContainer id="sobre-mi">
       <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
         <UserIcon class="size-7" />
-        Sobre mi
+        <span id="aboutMeText">{currentContent.aboutMe}</span>
       </h2>
-      <AboutMe/>
+      <AboutMe />
     </SectionContainer>
+    
     <Footer />
   </main>
 </Layout>
+<script type="text/javascript">
+ document.addEventListener("DOMContentLoaded", () => {
+  const content = {
+    en: {
+      title: "drmcodes | FullStack Web Developer",
+      description:
+        "drmcodes is a web developer with over 1 year of experience specializing in web pages and microservices.",
+      greeting: "Hello👋, I'm drmcodes",
+      experienceDescription:
+        "+1 year of experience as a self-taught developer. FullStack Web Developer, focused on continuous learning and constant improvement.",
+      experience: "Experience",
+      projects: "Projects",
+      aboutMe: "About Me",
+    },
+    es: {
+      title: "drmcodes | Desarrollador Web FullStack",
+      description:
+        "drmcodes es un desarrollador web con más de 1 año de experiencia especializado en el desarrollo de páginas web y microservicios.",
+      greeting: "Hola👋, soy drmcodes",
+      experienceDescription:
+        "+1 año de experiencia como autodidacta. Desarrollador Web FullStack, enfocado en el aprendizaje continuo y la mejora constante.",
+      experience: "Experiencia",
+      projects: "Proyectos",
+      aboutMe: "Sobre mí",
+    },
+  };
+
+  function getContent(language) {
+    return content[language] || content["en"];
+  }
+  
+  const language = localStorage.getItem("language") || "en";
+  const currentContent = getContent(language);
+
+  document.getElementById("greeting").innerText = currentContent.greeting;
+  document.getElementById("experienceDescription").innerText =
+    currentContent.experienceDescription;
+  document.getElementById("experienceText").innerText =
+    currentContent.experience;
+  document.getElementById("projectsText").innerText =
+    currentContent.projects;
+  document.getElementById("aboutMeText").innerText =
+    currentContent.aboutMe;
+});
+
+</script>

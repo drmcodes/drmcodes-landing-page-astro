@@ -1,21 +1,89 @@
 ---
-import ExperienceItem from "../components/ExperienceItem.astro"
-const EXPERIENCE = [
-  {
-    date: "Agosto 2023 - Actualidad",
-    title: "Desarrollador Web FullStack Autodidacta",
-    description:
-      "A lo largo de este período, he profundizado en el desarrollo web, adquiriendo habilidades clave en frontend y backend, desde la construcción de interfaces interactivas hasta la gestión de bases de datos y el control de versiones, todo a través del aprendizaje autodidacta.",
-  },
-];
+import ExperienceItem from "../components/ExperienceItem.astro";
+
+const EXPERIENCE = {
+  en: [
+    {
+      date: "August 2023 - Present",
+      title: "Self-Taught FullStack Web Developer",
+      description:
+        "During this period, I have delved into web development, acquiring key skills in both frontend and backend, from building interactive interfaces to managing databases and version control, all through self-directed learning.",
+    },
+  ],
+  es: [
+    {
+      date: "Agosto 2023 - Actualidad",
+      title: "Desarrollador Web FullStack Autodidacta",
+      description:
+        "A lo largo de este período, he profundizado en el desarrollo web, adquiriendo habilidades clave en frontend y backend, desde la construcción de interfaces interactivas hasta la gestión de bases de datos y el control de versiones, todo a través del aprendizaje autodidacta.",
+    },
+  ],
+};
+
+const defaultLanguage = "en";
+const language =
+  typeof window !== "undefined"
+    ? localStorage.getItem("language") || defaultLanguage
+    : defaultLanguage;
+const currentExperience = EXPERIENCE[language] || EXPERIENCE[defaultLanguage];
 ---
 
-<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-3">
-    { EXPERIENCE.map(exp => (
-        <li class="mb-10 ms-4">
-          <ExperienceItem {... exp}/>  
-        </li>
-    )
-)}
- 
+<ol
+  id="experience-list"
+  class="relative border-s border-gray-200 dark:border-gray-700 ml-3"
+>
+  {
+    currentExperience.map((exp) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...exp} />
+      </li>
+    ))
+  }
 </ol>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    const content = {
+      en: [
+        {
+          date: "August 2023 - Present",
+          title: "Self-Taught FullStack Web Developer",
+          description:
+            "During this period, I have delved into web development, acquiring key skills in both frontend and backend, from building interactive interfaces to managing databases and version control, all through self-directed learning.",
+        },
+      ],
+      es: [
+        {
+          date: "Agosto 2023 - Actualidad",
+          title: "Desarrollador Web FullStack Autodidacta",
+          description:
+            "A lo largo de este período, he profundizado en el desarrollo web, adquiriendo habilidades clave en frontend y backend, desde la construcción de interfaces interactivas hasta la gestión de bases de datos y el control de versiones, todo a través del aprendizaje autodidacta.",
+        },
+      ],
+    };
+
+    function getContent(language) {
+      return content[language] || content["en"];
+    }
+
+    const language = localStorage.getItem("language") || "en";
+    const currentContent = getContent(language);
+
+    const experienceList = document.getElementById("experience-list");
+
+    experienceList.innerHTML = "";
+
+    currentContent.forEach((exp) => {
+      const li = document.createElement("li");
+      li.className = "mb-10 ms-4";
+      li.innerHTML = `
+        <div>
+          <span class="text-blue-300">${exp.date}</span>
+          <h2 class="text-lg font-semibold text-yellow-400/90">${exp.title}</h2>
+          <p>${exp.description}</p>
+        </div>
+      `;
+      experienceList.appendChild(li);
+    });
+  });
+</script>

@@ -1,79 +1,223 @@
 ---
-import HtmlIcon from '../icons/HtmlIcon.astro';
-import CssIcon from '../icons/CssIcon.astro';
-import ReactIcon from '../icons/ReactIcon.astro';
-import NodeIcon from '../icons/NodeIcon.astro';
-import ExpressIcon from '../icons/ExpressIcon.astro';
-import MongoDBIcon from '../icons/MongoDBIcon.astro';
-import StyledComponentsIcon from '../icons/StyledComponentsIcon.astro';
+import HtmlIcon from "../icons/HtmlIcon.astro";
+import CssIcon from "../icons/CssIcon.astro";
+import ReactIcon from "../icons/ReactIcon.astro";
+import NodeIcon from "../icons/NodeIcon.astro";
+import ExpressIcon from "../icons/ExpressIcon.astro";
+import MongoDBIcon from "../icons/MongoDBIcon.astro";
+import StyledComponentsIcon from "../icons/StyledComponentsIcon.astro";
 import TypeScriptIcon from "../icons/TypeScriptIcon.astro";
-import ViteIcon from "../icons/ViteIcon.astro"
+import ViteIcon from "../icons/ViteIcon.astro";
 
 const TAGS = {
-  HTML: { name: 'HTML', class: 'bg-orange-600 text-white', icon: HtmlIcon },
-  CSS: { name: 'CSS', class: 'bg-blue-500 text-white', icon: CssIcon },
-  REACT: { name: 'React.js', class: 'bg-blue-600 text-white', icon: ReactIcon },
-  NODE: { name: 'Node.js', class: 'bg-green-600 text-white', icon: NodeIcon },
-  EXPRESS: { name: 'Express.js', class: 'bg-gray-800 text-white', icon: ExpressIcon },
-  MONGODB: { name: 'MongoDB', class: 'bg-green-700 text-white', icon: MongoDBIcon },
-  STYLED: {name: 'StyledComponents', class:'bg-blue-500 text-white', icon:StyledComponentsIcon},
-  TYPESCRIPT: {name: 'TypeScript', class:'bg-blue-500 text-white', icon:TypeScriptIcon},
-  VITE:{name:'Vite', class:'bg-gray-800 text-white', icon:ViteIcon},
+  HTML: {
+    name: { en: "HTML", es: "HTML" },
+    class: "bg-orange-600 text-white",
+    icon: HtmlIcon,
+  },
+  CSS: {
+    name: { en: "CSS", es: "CSS" },
+    class: "bg-blue-500 text-white",
+    icon: CssIcon,
+  },
+  REACT: {
+    name: { en: "React.js", es: "React.js" },
+    class: "bg-blue-600 text-white",
+    icon: ReactIcon,
+  },
+  NODE: {
+    name: { en: "Node.js", es: "Node.js" },
+    class: "bg-green-600 text-white",
+    icon: NodeIcon,
+  },
+  EXPRESS: {
+    name: { en: "Express.js", es: "Express.js" },
+    class: "bg-gray-800 text-white",
+    icon: ExpressIcon,
+  },
+  MONGODB: {
+    name: { en: "MongoDB", es: "MongoDB" },
+    class: "bg-green-700 text-white",
+    icon: MongoDBIcon,
+  },
+  STYLED: {
+    name: { en: "StyledComponents", es: "StyledComponents" },
+    class: "bg-blue-500 text-white",
+    icon: StyledComponentsIcon,
+  },
+  TYPESCRIPT: {
+    name: { en: "TypeScript", es: "TypeScript" },
+    class: "bg-blue-500 text-white",
+    icon: TypeScriptIcon,
+  },
+  VITE: {
+    name: { en: "Vite", es: "Vite" },
+    class: "bg-gray-800 text-white",
+    icon: ViteIcon,
+  },
 };
 
 const PROJECTS = [
-{
-  "title": "League of Legends Info App",
-  "description": "Aplicación que obtiene información sobre los campeones, objetos y runas de League of Legends. Permite filtrar los campeones por tipo, muestra y filtra los objetos por categoría, y permite ver las diferentes runas disponibles consumiendo datos de un repositorio oficial de Riot Games.",
-  "link": "https://lol-api-app-ts.vercel.app/",
-  "github": "https://github.com/drmcodes/lol-api-app-ts",
-  "image": "/mockups/leagueoflegends-mockup.webp",
-  "tags": [TAGS.HTML, TAGS.CSS, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.VITE]
-},
-{
-    title: "Plataforma Social",
-    description: "Proyecto de red social con autentificación de usuario en la que los usuarios pueden conectarse, compartir actualizaciones y fotos. ",
+  {
+    title: {
+      en: "League of Legends Info App",
+      es: "Aplicación de Información de League of Legends",
+    },
+    description: {
+      en: "Application that retrieves information about champions, items, and runes in League of Legends. It allows filtering champions by type, showing and filtering items by category, and viewing the different available runes from an official Riot Games repository.",
+      es: "Aplicación que obtiene información sobre los campeones, objetos y runas de League of Legends. Permite filtrar los campeones por tipo, mostrar y filtrar los objetos por categoría, y ver las diferentes runas disponibles desde un repositorio oficial de Riot Games.",
+    },
+    link: "https://lol-api-app-ts.vercel.app/",
+    github: "https://github.com/drmcodes/lol-api-app-ts",
+    image: "/mockups/leagueoflegends-mockup.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.VITE],
+  },
+  {
+    title: { en: "Social Platform", es: "Plataforma Social" },
+    description: {
+      en: "Social network project with user authentication where users can connect, share updates, and photos.",
+      es: "Proyecto de red social con autenticación de usuario en el que los usuarios pueden conectarse, compartir actualizaciones y fotos.",
+    },
     link: "https://github.com/drmcodes/login-register?tab=readme-ov-file",
     github: "https://github.com/drmcodes/login-register",
     image: "/mockups/login-register-mockup.webp",
-    tags: [TAGS.HTML, TAGS.CSS, TAGS.REACT, TAGS.NODE, TAGS.EXPRESS,TAGS.MONGODB, TAGS.VITE],
+    tags: [
+      TAGS.HTML,
+      TAGS.CSS,
+      TAGS.REACT,
+      TAGS.NODE,
+      TAGS.EXPRESS,
+      TAGS.MONGODB,
+      TAGS.VITE,
+    ],
   },
   {
-    title: "Página web Estudio de Arte",
-    description: "Página web de Estudio de Arte Bermellón. Aquí se muestran las técnicas artísticas que emplean, los cursos y clases de dibujo que ofrecen para todas las edades, su galería de arte y otros servicios.",
+    title: { en: "Art Studio Website", es: "Página web Estudio de Arte" },
+    description: {
+      en: "Website for Art Studio Bermellón. It showcases the artistic techniques they use, the drawing courses and classes they offer for all ages, their art gallery, and other services.",
+      es: "Página web de Estudio de Arte Bermellón. Aquí se muestran las técnicas artísticas que emplean, los cursos y clases de dibujo que ofrecen para todas las edades, su galería de arte y otros servicios.",
+    },
     link: "https://academiabermellon.netlify.app/",
     github: "https://github.com/drmcodes/academiaBermellon-webpage",
     image: "/mockups/bermellon-mockup.webp",
-    tags: [TAGS.HTML, TAGS.CSS, TAGS.REACT,TAGS.STYLED,TAGS.VITE],
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.REACT, TAGS.STYLED, TAGS.VITE],
   },
 ];
 
+const defaultLanguage = "en";
+const language =
+  typeof window !== "undefined"
+    ? localStorage.getItem("language") || defaultLanguage
+    : defaultLanguage;
 ---
 
 {
   PROJECTS.map(({ title, description, tags, image, link, github }) => (
     <article class="pb-24">
-      <h3 class="text-2xl font-semibold text-yellow-200/90 mb-2">{title}</h3>
-      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <h3 class="text-2xl font-semibold text-yellow-200/90 mb-2">
+        {title[language]}
+      </h3>
+      <p class="text-lg mb-4 text-pretty">{description[language]}</p>
       <ul class="flex flex-wrap gap-x-2">
-  {tags.map((tag) => (
-    <li class="mb-2">
-      <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
-        <tag.icon class="size-4"></tag.icon>{tag.name}
-      </span>
-    </li>
-  ))}
-</ul>
-      <img class="rounded shadow-2xl shadow-white/10 pt-4" src={image} alt={`Screenshot del proyecto ${image}`}}>
+        {tags.map((tag) => (
+          <li class="mb-2">
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+            >
+              <tag.icon class="size-4" />
+              {tag.name[language]}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        class="rounded shadow-2xl shadow-white/10 pt-4"
+        src={image}
+        alt={`Screenshot del proyecto ${title[language]}`}
+      />
       <div class="flex justify-between">
-        <a  class="rounded-full border w-[45%] my-5 border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-4 md:px-4 text-xs lg:text-base bg-white/5 hover:scale-110 hover:bg-white/10 transition"
-  target="_blank"
-  rel="noopener noreferrer" href={link}>Live demo</a>
-<a  class="rounded-full border w-[45%] my-5 border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-4 md:px-4 text-xs lg:text-base bg-white/5 hover:scale-110 hover:bg-white/10 transition"
-  target="_blank"
-  rel="noopener noreferrer" href={github}>GitHub Repo</a>
-        </div>
-
+        <a
+          class="rounded-full border w-[45%] my-5 border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-4 md:px-4 text-xs lg:text-base bg-white/5 hover:scale-110 hover:bg-white/10 transition"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={link}
+        >
+          Live demo
+        </a>
+        <a
+          class="rounded-full border w-[45%] my-5 border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-4 md:px-4 text-xs lg:text-base bg-white/5 hover:scale-110 hover:bg-white/10 transition"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={github}
+        >
+          GitHub Repo
+        </a>
+      </div>
     </article>
   ))
 }
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    const PROJECTS = [
+      {
+        title: {
+          en: "League of Legends Info App",
+          es: "Aplicación de Información de League of Legends",
+        },
+        description: {
+          en: "Application that retrieves information about champions, items, and runes in League of Legends. It allows filtering champions by type, showing and filtering items by category, and viewing the different available runes from an official Riot Games repository.",
+          es: "Aplicación que obtiene información sobre los campeones, objetos y runas de League of Legends. Permite filtrar los campeones por tipo, mostrar y filtrar los objetos por categoría, y ver las diferentes runas disponibles desde un repositorio oficial de Riot Games.",
+        },
+        link: "https://lol-api-app-ts.vercel.app/",
+        github: "https://github.com/drmcodes/lol-api-app-ts",
+        image: "/mockups/leagueoflegends-mockup.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.VITE],
+      },
+      {
+        title: { en: "Social Platform", es: "Plataforma Social" },
+        description: {
+          en: "Social network project with user authentication where users can connect, share updates, and photos.",
+          es: "Proyecto de red social con autenticación de usuario en el que los usuarios pueden conectarse, compartir actualizaciones y fotos.",
+        },
+        link: "https://github.com/drmcodes/login-register?tab=readme-ov-file",
+        github: "https://github.com/drmcodes/login-register",
+        image: "/mockups/login-register-mockup.webp",
+        tags: [
+          TAGS.HTML,
+          TAGS.CSS,
+          TAGS.REACT,
+          TAGS.NODE,
+          TAGS.EXPRESS,
+          TAGS.MONGODB,
+          TAGS.VITE,
+        ],
+      },
+      {
+        title: { en: "Art Studio Website", es: "Página web Estudio de Arte" },
+        description: {
+          en: "Website for Art Studio Bermellón. It showcases the artistic techniques they use, the drawing courses and classes they offer for all ages, their art gallery, and other services.",
+          es: "Página web de Estudio de Arte Bermellón. Aquí se muestran las técnicas artísticas que emplean, los cursos y clases de dibujo que ofrecen para todas las edades, su galería de arte y otros servicios.",
+        },
+        link: "https://academiabermellon.netlify.app/",
+        github: "https://github.com/drmcodes/academiaBermellon-webpage",
+        image: "/mockups/bermellon-mockup.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.REACT, TAGS.STYLED, TAGS.VITE],
+      },
+    ];
+
+    function getContent(language) {
+      return PROJECTS[language] || PROJECTS["en"];
+    }
+
+    const language = localStorage.getItem("language") || "en";
+    const currentContent = getContent(language);
+
+    document.getElementById("greeting").innerText = currentContent.greeting;
+    document.getElementById("experienceDescription").innerText =
+      currentContent.experienceDescription;
+    document.getElementById("experienceText").innerText =
+      currentContent.experience;
+    document.getElementById("projectsText").innerText = currentContent.projects;
+    document.getElementById("aboutMeText").innerText = currentContent.aboutMe;
+  });
+</script>
