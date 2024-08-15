@@ -1,4 +1,4 @@
-# drmcodes website
-[work in progress]
+# drmcodes | FullStack Web Developer
 
-![obra0038](https://github.com/user-attachments/assets/19988fca-2a27-40e1-903d-60296026b4a7)
+
+![954shots_so](https://github.com/user-attachments/assets/a9bd954d-1904-4074-90bd-9a19d8f39737)
