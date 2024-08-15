@@ -6,7 +6,8 @@ Hola soy drmcodes, Desarrollador Web FullStack autodidacta. Esta landing page si
 
 ## Aplicación Desplegada
 
-Puedes visitar la página en el siguiente enlace: [https://www.drmcodes-dev.netlify.app/](https://www.drmcodes-dev.netlify.app/)
+Página Web:
+<a href="https://www.ejemplo.com" style="display: inline-block; padding: 10px 20px; font-size: 16px; font-weight: bold; color: white; background-color: #007bff; border-radius: 5px; text-decoration: none; text-align: center;" target="_blank" rel="noopener noreferrer">Click aquí</a>
 
 ## Tecnologías
 
