@@ -6,6 +6,8 @@ import NodeIcon from '../icons/NodeIcon.astro';
 import ExpressIcon from '../icons/ExpressIcon.astro';
 import MongoDBIcon from '../icons/MongoDBIcon.astro';
 import StyledComponentsIcon from '../icons/StyledComponentsIcon.astro';
+import TypeScriptIcon from "../icons/TypeScriptIcon.astro";
+import MetamaskIcon from "../icons/MetamaskIcon.astro"
 
 const TAGS = {
   HTML: { name: 'HTML', class: 'bg-orange-600 text-white', icon: HtmlIcon },
@@ -14,21 +16,32 @@ const TAGS = {
   NODE: { name: 'Node.js', class: 'bg-green-600 text-white', icon: NodeIcon },
   EXPRESS: { name: 'Express.js', class: 'bg-gray-800 text-white', icon: ExpressIcon },
   MONGODB: { name: 'MongoDB', class: 'bg-green-700 text-white', icon: MongoDBIcon },
-  STYLED: {name: 'StyledComponents', class:'bg-blue-500 text-white', icon:StyledComponentsIcon}
+  STYLED: {name: 'StyledComponents', class:'bg-blue-500 text-white', icon:StyledComponentsIcon},
+  TYPESCRIPT: {name: 'TypeScript', class:'bg-blue-500 text-white', icon:TypeScriptIcon},
+  METAMASK: {name: 'Metamask', class:'bg-gray-800 text-white', icon:MetamaskIcon}
+  
 };
 
 const PROJECTS = [
-  {
+{
+  title: "Token Transfer App",
+  description: "Una aplicación que permite enviar tokens ERC20 de una wallet a otra en la blockchain. La aplicación está desarrollada con React,TypeScript y Wagmi, y utiliza MetaMask para interactuar con la blockchain.",
+  link: "#",
+  github: "https://github.com/drmcodes/token-transfer-app",
+  image: "/underconstruction.webp",
+  tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.METAMASK]
+},
+{
     title: "Plataforma Social",
-    description: "Proyecto de red social en la que los usuarios pueden conectarse, compartir actualizaciones y fotos. ",
-    link: "#",
+    description: "Proyecto de red social con autentificación de usuario en la que los usuarios pueden conectarse, compartir actualizaciones y fotos. ",
+    link: "https://github.com/drmcodes/login-register?tab=readme-ov-file",
     github: "https://github.com/drmcodes/login-register",
     image: "/mockups/login-register-mockup.webp",
     tags: [TAGS.HTML, TAGS.CSS, TAGS.REACT, TAGS.NODE, TAGS.EXPRESS,TAGS.MONGODB],
   },
   {
     title: "Página web Estudio de Arte",
-    description: "Página web de Estudio de Arte Bermellón. Aquí se muestran las técnicas artísticas que emplean, los cursos y clases de dibujo que ofrecen para todas las edades, su galería de arte y otros servicios.\n(Sitio en construcción)",
+    description: "Página web de Estudio de Arte Bermellón. Aquí se muestran las técnicas artísticas que emplean, los cursos y clases de dibujo que ofrecen para todas las edades, su galería de arte y otros servicios.",
     link: "https://academiabermellon.netlify.app/",
     github: "https://github.com/drmcodes/academiaBermellon-webpage",
     image: "/mockups/bermellon-mockup.webp",
