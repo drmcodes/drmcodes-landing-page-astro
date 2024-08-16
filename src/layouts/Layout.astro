@@ -1,7 +1,6 @@
 ---
 import "@fontsource/onest";
 import Header from "../components/Header.astro";
-
 interface Props {
   title: string;
   description: string;
@@ -93,17 +92,14 @@ const { title, description } = Astro.props;
     );
 
     const savedLanguage = localStorage.getItem("language") || "en";
+    //do not delete or flag dissapears.
     updateLanguageDisplay(savedLanguage);
-
+    //
     languageToggleButton.addEventListener("click", () => {
       let currentLanguage = localStorage.getItem("language") || "en";
       let newLanguage = currentLanguage === "en" ? "es" : "en";
       localStorage.setItem("language", newLanguage);
-      updateLanguageDisplay(newLanguage);
-
       location.reload();
     });
-
-    
   });
 </script>

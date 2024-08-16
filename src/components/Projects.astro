@@ -104,120 +104,115 @@ const PROJECTS = [
   },
 ];
 
-const defaultLanguage = "en";
 const language =
   typeof window !== "undefined"
-    ? localStorage.getItem("language") || defaultLanguage
-    : defaultLanguage;
+    ? localStorage.getItem("language") || "en"
+    : "en";
 ---
 
-{
-  PROJECTS.map(({ title, description, tags, image, link, github }) => (
-    <article class="pb-24">
-      <h3 class="text-2xl font-semibold text-yellow-200/90 mb-2">
-        {title[language]}
-      </h3>
-      <p class="text-lg mb-4 text-pretty">{description[language]}</p>
-      <ul class="flex flex-wrap gap-x-2">
-        {tags.map((tag) => (
-          <li class="mb-2">
-            <span
-              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
-            >
-              <tag.icon class="size-4" />
-              {tag.name[language]}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        class="rounded shadow-2xl shadow-white/10 pt-4"
-        src={image}
-        alt={`Screenshot del proyecto ${title[language]}`}
-      />
-      <div class="flex justify-between">
-        <a
-          class="rounded-full border w-[45%] my-5 border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-4 md:px-4 text-xs lg:text-base bg-white/5 hover:scale-110 hover:bg-white/10 transition"
-          target="_blank"
-          rel="noopener noreferrer"
-          href={link}
-        >
-          Live demo
-        </a>
-        <a
-          class="rounded-full border w-[45%] my-5 border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-4 md:px-4 text-xs lg:text-base bg-white/5 hover:scale-110 hover:bg-white/10 transition"
-          target="_blank"
-          rel="noopener noreferrer"
-          href={github}
-        >
-          GitHub Repo
-        </a>
-      </div>
-    </article>
-  ))
-}
-<script type="text/javascript">
+<div id="projects">
+  {
+    PROJECTS.map(({ title, description, tags, image, link, github }) => (
+      <article class="pb-24">
+        <h3 id="title" class="text-2xl font-semibold text-yellow-200/90 mb-2">
+          {title[language]}
+        </h3>
+        <p id="description" class="text-lg mb-4 text-pretty">
+          {description[language]}
+        </p>
+        <ul class="flex flex-wrap gap-x-2">
+          {tags.map((tag) => (
+            <li class="mb-2">
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+              >
+                <tag.icon class="w-4 h-4" />
+                {tag.name[language]}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <img
+          class="rounded shadow-2xl shadow-white/10 pt-4"
+          src={image}
+          alt={`Screenshot of ${title[language]}`}
+        />
+        <div class="flex justify-between">
+          <a
+            class="rounded-full border w-[45%] my-5 border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-4 md:px-4 text-xs lg:text-base bg-white/5 hover:scale-110 hover:bg-white/10 transition"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={link}
+          >
+            Demo
+          </a>
+          <a
+            class="rounded-full border w-[45%] my-5 border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-4 md:px-4 text-xs lg:text-base bg-white/5 hover:scale-110 hover:bg-white/10 transition"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={github}
+          >
+            GitHub Repo
+          </a>
+        </div>
+      </article>
+    ))
+  }
+</div>
+<script>
   document.addEventListener("DOMContentLoaded", () => {
-    const PROJECTS = [
-      {
-        title: {
-          en: "League of Legends Info App",
-          es: "Aplicación de Información de League of Legends",
-        },
-        description: {
-          en: "Application that retrieves information about champions, items, and runes in League of Legends. It allows filtering champions by type, showing and filtering items by category, and viewing the different available runes from an official Riot Games repository.",
-          es: "Aplicación que obtiene información sobre los campeones, objetos y runas de League of Legends. Permite filtrar los campeones por tipo, mostrar y filtrar los objetos por categoría, y ver las diferentes runas disponibles desde un repositorio oficial de Riot Games.",
-        },
-        link: "https://lol-api-app-ts.vercel.app/",
-        github: "https://github.com/drmcodes/lol-api-app-ts",
-        image: "/mockups/leagueoflegends-mockup.webp",
-        tags: [TAGS.HTML, TAGS.CSS, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.VITE],
-      },
-      {
-        title: { en: "Social Platform", es: "Plataforma Social" },
-        description: {
-          en: "Social network project with user authentication where users can connect, share updates, and photos.",
-          es: "Proyecto de red social con autenticación de usuario en el que los usuarios pueden conectarse, compartir actualizaciones y fotos.",
-        },
-        link: "https://github.com/drmcodes/login-register?tab=readme-ov-file",
-        github: "https://github.com/drmcodes/login-register",
-        image: "/mockups/login-register-mockup.webp",
-        tags: [
-          TAGS.HTML,
-          TAGS.CSS,
-          TAGS.REACT,
-          TAGS.NODE,
-          TAGS.EXPRESS,
-          TAGS.MONGODB,
-          TAGS.VITE,
-        ],
-      },
-      {
-        title: { en: "Art Studio Website", es: "Página web Estudio de Arte" },
-        description: {
-          en: "Website for Art Studio Bermellón. It showcases the artistic techniques they use, the drawing courses and classes they offer for all ages, their art gallery, and other services.",
-          es: "Página web de Estudio de Arte Bermellón. Aquí se muestran las técnicas artísticas que emplean, los cursos y clases de dibujo que ofrecen para todas las edades, su galería de arte y otros servicios.",
-        },
-        link: "https://academiabermellon.netlify.app/",
-        github: "https://github.com/drmcodes/academiaBermellon-webpage",
-        image: "/mockups/bermellon-mockup.webp",
-        tags: [TAGS.HTML, TAGS.CSS, TAGS.REACT, TAGS.STYLED, TAGS.VITE],
-      },
-    ];
-
-    function getContent(language) {
-      return PROJECTS[language] || PROJECTS["en"];
-    }
-
     const language = localStorage.getItem("language") || "en";
-    const currentContent = getContent(language);
 
-    document.getElementById("greeting").innerText = currentContent.greeting;
-    document.getElementById("experienceDescription").innerText =
-      currentContent.experienceDescription;
-    document.getElementById("experienceText").innerText =
-      currentContent.experience;
-    document.getElementById("projectsText").innerText = currentContent.projects;
-    document.getElementById("aboutMeText").innerText = currentContent.aboutMe;
+    const projectContents = {
+      en: [
+        {
+          title: "League of Legends Info App",
+          description:
+            "Application that retrieves information about champions, items, and runes in League of Legends. It allows filtering champions by type, showing and filtering items by category, and viewing the different available runes from an official Riot Games repository.",
+        },
+        {
+          title: "Social Platform",
+          description:
+            "Social network project with user authentication where users can connect, share updates, and photos.",
+        },
+        {
+          title: "Art Studio Website",
+          description:
+            "Website for Art Studio Bermellón. It showcases the artistic techniques they use, the drawing courses and classes they offer for all ages, their art gallery, and other services.",
+        },
+      ],
+      es: [
+        {
+          title: "Aplicación de Información de League of Legends",
+          description:
+            "Aplicación que obtiene información sobre los campeones, objetos y runas de League of Legends. Permite filtrar los campeones por tipo, mostrar y filtrar los objetos por categoría, y ver las diferentes runas disponibles desde un repositorio oficial de Riot Games.",
+        },
+        {
+          title: "Plataforma Social",
+          description:
+            "Proyecto de red social con autenticación de usuario en el que los usuarios pueden conectarse, compartir actualizaciones y fotos.",
+        },
+        {
+          title: "Página web Estudio de Arte",
+          description:
+            "Página web de Estudio de Arte Bermellón. Aquí se muestran las técnicas artísticas que emplean, los cursos y clases de dibujo que ofrecen para todas las edades, su galería de arte y otros servicios.",
+        },
+      ],
+    };
+
+    const currentContent = projectContents[language] || projectContents.en;
+
+
+    const projectElements = document.querySelectorAll("#projects > article");
+
+    projectElements.forEach((element, index) => {
+      const titleElement = element.querySelector("h3");
+      const descriptionElement = element.querySelector("p");
+
+      if (currentContent[index]) {
+        titleElement.innerText = currentContent[index].title;
+        descriptionElement.innerText = currentContent[index].description;
+      }
+    });
   });
 </script>
