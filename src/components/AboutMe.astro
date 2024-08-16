@@ -22,12 +22,12 @@ const personalImageAlt = "drmcodes";
   const content = {
     en: {
       p1: "Hi, I'm Diego. My interest in programming came unexpectedly. I am currently working on projects and exploring new libraries and frameworks.",
-      p2: "My main focus is Fullstack development, although I am also interested in Web3 and blockchain development. Currently, I am creating applications using technologies such as Solidity and WAGMI, among others.",
+      p2: "My main focus is Fullstack development, although I am also interested in Web3 and blockchain development. Currently, I am creating applications using technologies such as Solidity among others.",
       p3: "I actively participate in open-source projects. I consider them to be key aspects of web development. I am always looking to learn and grow in the field of programming.",
     },
     es: {
       p1: "Soy Diego. Mi interés por la programación surgió de manera inesperada. Actualmente me encuentro desarrollando proyectos y explorando nuevas librerías y frameworks.",
-      p2: "Mi enfoque principal es el desarrollo Fullstack, aunque también me interesa el desarrollo en Web3 y blockchain. Actualmente, estoy creando aplicaciones utilizando tecnologías como Solidity y WAGMI, entre otras.",
+      p2: "Mi enfoque principal es el desarrollo Fullstack, aunque también me interesa el desarrollo en Web3 y blockchain. Actualmente, estoy creando aplicaciones utilizando tecnologías como Solidity entre otras.",
       p3: "Participo activamente en proyectos open source. Considero que son aspectos clave del desarrollo web. Siempre estoy buscando aprender y crecer en el ámbito de la programación.",
     },
   };
@@ -40,7 +40,7 @@ const personalImageAlt = "drmcodes";
   const currentContent = getContent(language);
 
   document.getElementById("text-content").innerHTML = `
-    <p><span class="text-white-200/90">${currentContent.p1}</span></p>
+    <p><span class="text-yellow-400/90">${currentContent.p1}</span></p>
     <p><span class="text-white-200/90">${currentContent.p2}</span></p>
     <p><span class="text-white-200/90">${currentContent.p3}</span></p>
   `;

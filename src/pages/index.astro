@@ -75,11 +75,9 @@ const currentContent = content[language] || content[defaultLanguage];
       </h1>
       <h2
         id="experienceDescription"
-        class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]"
+        class="text-xl text-yellow-400/90 lg:text-2xl text-wrap max-w-[700px]"
       >
-        <span class="text-yellow-200/90"
-          >{currentContent.experienceDescription}</span
-        >
+        <span>{currentContent.experienceDescription}</span>
       </h2>
 
       <nav class="flex gap-4 mt-8 flex-wrap">
@@ -122,53 +120,50 @@ const currentContent = content[language] || content[defaultLanguage];
       </h2>
       <AboutMe />
     </SectionContainer>
-    
+
     <Footer />
   </main>
 </Layout>
 <script type="text/javascript">
- document.addEventListener("DOMContentLoaded", () => {
-  const content = {
-    en: {
-      title: "drmcodes | FullStack Web Developer",
-      description:
-        "drmcodes is a web developer with over 1 year of experience specializing in web pages and microservices.",
-      greeting: "Hello👋, I'm drmcodes",
-      experienceDescription:
-        "+1 year of experience as a self-taught developer. FullStack Web Developer, focused on continuous learning and constant improvement.",
-      experience: "Experience",
-      projects: "Projects",
-      aboutMe: "About Me",
-    },
-    es: {
-      title: "drmcodes | Desarrollador Web FullStack",
-      description:
-        "drmcodes es un desarrollador web con más de 1 año de experiencia especializado en el desarrollo de páginas web y microservicios.",
-      greeting: "Hola👋, soy drmcodes",
-      experienceDescription:
-        "+1 año de experiencia como autodidacta. Desarrollador Web FullStack, enfocado en el aprendizaje continuo y la mejora constante.",
-      experience: "Experiencia",
-      projects: "Proyectos",
-      aboutMe: "Sobre mí",
-    },
-  };
+  document.addEventListener("DOMContentLoaded", () => {
+    const content = {
+      en: {
+        title: "drmcodes | FullStack Web Developer",
+        description:
+          "drmcodes is a web developer with over 1 year of experience specializing in web pages and microservices.",
+        greeting: "Hello👋, I'm drmcodes",
+        experienceDescription:
+          "+1 year of experience as a self-taught developer. FullStack Web Developer, focused on continuous learning and constant improvement.",
+        experience: "Experience",
+        projects: "Projects",
+        aboutMe: "About Me",
+      },
+      es: {
+        title: "drmcodes | Desarrollador Web FullStack",
+        description:
+          "drmcodes es un desarrollador web con más de 1 año de experiencia especializado en el desarrollo de páginas web y microservicios.",
+        greeting: "Hola👋, soy drmcodes",
+        experienceDescription:
+          "+1 año de experiencia como autodidacta. Desarrollador Web FullStack, enfocado en el aprendizaje continuo y la mejora constante.",
+        experience: "Experiencia",
+        projects: "Proyectos",
+        aboutMe: "Sobre mí",
+      },
+    };
 
-  function getContent(language) {
-    return content[language] || content["en"];
-  }
-  
-  const language = localStorage.getItem("language") || "en";
-  const currentContent = getContent(language);
+    function getContent(language) {
+      return content[language] || content["en"];
+    }
 
-  document.getElementById("greeting").innerText = currentContent.greeting;
-  document.getElementById("experienceDescription").innerText =
-    currentContent.experienceDescription;
-  document.getElementById("experienceText").innerText =
-    currentContent.experience;
-  document.getElementById("projectsText").innerText =
-    currentContent.projects;
-  document.getElementById("aboutMeText").innerText =
-    currentContent.aboutMe;
-});
+    const language = localStorage.getItem("language") || "en";
+    const currentContent = getContent(language);
 
+    document.getElementById("greeting").innerText = currentContent.greeting;
+    document.getElementById("experienceDescription").innerText =
+      currentContent.experienceDescription;
+    document.getElementById("experienceText").innerText =
+      currentContent.experience;
+    document.getElementById("projectsText").innerText = currentContent.projects;
+    document.getElementById("aboutMeText").innerText = currentContent.aboutMe;
+  });
 </script>
