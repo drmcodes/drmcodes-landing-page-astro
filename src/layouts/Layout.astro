@@ -20,9 +20,11 @@ const { title, description } = Astro.props;
   </head>
   <body class="relative">
     <div
-      class="fixed inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
+      class="fixed inset-0 -z-10 h-full w-full items-center px-5 py-24
+    [background:radial-gradient(125%_125%_at_50%_10%,#000d2f_40%,#063b80_100%)]"
     >
     </div>
+
     <Header />
     <slot />
   </body>
@@ -88,7 +90,7 @@ const { title, description } = Astro.props;
 
   document.addEventListener("DOMContentLoaded", () => {
     const languageToggleButton = document.getElementById(
-      "language-toggle-button"
+      "language-toggle-button",
     );
 
     const savedLanguage = localStorage.getItem("language") || "en";
